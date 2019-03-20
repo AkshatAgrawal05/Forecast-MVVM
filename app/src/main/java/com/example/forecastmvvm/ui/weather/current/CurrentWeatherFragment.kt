@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.forecastmvvm.R
+import com.example.forecastmvvm.data.ApixuWeatherApiService
 
 class CurrentWeatherFragment : Fragment() {
 
@@ -27,6 +27,12 @@ class CurrentWeatherFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CurrentWeatherViewModel::class.java)
         // TODO: Use the ViewModel
+        val apiService = ApixuWeatherApiService.invoke()
+
+        /*GlobalScope.launch(Dispatchers.Main){
+            val currentWeatherResponse = apiService.getCurrentWeather("london").await()
+                textview.text = currentWeatherResponse.currentWeatherEntry.toString()
+        }*/
     }
 
 }
