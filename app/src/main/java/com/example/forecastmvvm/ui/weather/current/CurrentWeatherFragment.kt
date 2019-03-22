@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.example.forecastmvvm.R
 import com.example.forecastmvvm.data.ApixuWeatherApiService
 
 class CurrentWeatherFragment : Fragment() {
