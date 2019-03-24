@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.forecastmvvm.data.db.entity.CURRENT_WEATHER_ID
+import com.example.forecastmvvm.data.db.entity.CurrentWeatherEntry
 import com.example.forecastmvvm.data.db.unitlocalised.ImperialCurrentWeatherEntry
 import com.example.forecastmvvm.data.db.unitlocalised.MetricCurrentWeatherEntry
 
@@ -13,7 +14,7 @@ import com.example.forecastmvvm.data.db.unitlocalised.MetricCurrentWeatherEntry
 interface CurrentWeatherDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(currentWeatherDao: CurrentWeatherDao)
+    fun upsert(currentWeatherEntry: CurrentWeatherEntry)
 
     @Query("SELECT * FROM current_weather WHERE id = $CURRENT_WEATHER_ID")
     fun getWeatherMetric(): LiveData<MetricCurrentWeatherEntry>
